@@ -31,9 +31,9 @@ let myCalculator = {
             '    <div class="conflict">\n' +
             '        <div class="left">\n' +
             '            <input type="button" name="" value="0" class="big bNumer">\n' +
-            '            <input type="button" name="" value="." class=" small">\n' +
-            '            <input type="button" name="" value="Del" class=" red small white-text top-margin">\n' +
-            '            <input type="button" name="" value="=" class=" green white-text big top-margin equal">\n' +
+            '            <input type="button" name="" value="." class="small">\n' +
+            '            <input type="button" name="" value="Del" class="red del small white-text top-margin">\n' +
+            '            <input type="button" name="" value="=" class="green white-text big top-margin equal">\n' +
             '        </div>\n' +
             '        <div class="right">\n' +
             '            <input type="button" name="" value="+" class="global grey plus">\n' +
@@ -74,6 +74,7 @@ let myCalculator = {
             else if(myCalculator.previousAction === 'multiply') {
                 myCalculator.result.value = parseInt(myCalculator.previousValue) * parseInt(myCalculator.result.value);
             }
+            
         });
 
         
@@ -98,6 +99,13 @@ let myCalculator = {
             myCalculator.result.value = 0;
         })
         
+        let del = document.querySelector('.del');
+        del.addEventListener('click', function() {
+            if (myCalculator.previousAction === 'del') {
+                myCalculator.result.value = 0;     
+            }
+           
+        })
 
 
     },
